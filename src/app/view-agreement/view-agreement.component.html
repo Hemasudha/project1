@@ -1,0 +1,11 @@
+<p>
+  I,<input [(ngModel)]="name" (keyUp.enter)="onKeyUp()" />,working at pramati
+  technologies agree to this license
+</p>
+<div style="text-align: right">
+  <p>{{ name }}</p>
+  <p>Hyderabad</p>
+  <button (click)="onClick()">Confirm</button>
+</div>
+
+<pr-confirm-agreement [agree]="showVar"></pr-confirm-agreement>

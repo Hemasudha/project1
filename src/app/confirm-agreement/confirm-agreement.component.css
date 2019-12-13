@@ -1,0 +1,27 @@
+.agreement {
+  background: rgba(76, 175, 80, 0.3);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+
+  position: fixed;
+  /* bottom: 23px;
+  right: 28px; */
+  width: 100%;
+}
+.btn-success {
+  background: green;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 0 25px;
+}
+.btn-danger {
+  background: red;
+  padding: 10px;
+  margin: 0 25px;
+  color: white;
+  font-weight: bold;
+  margin: 0 25px;
+}

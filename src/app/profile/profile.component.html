@@ -1,0 +1,84 @@
+<div class="container">
+  <form [formGroup]="subForm">
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input
+        class="form-control"
+        id="firstname"
+        formControlName="firstName"
+        [value]=""
+      />
+      <!-- <div
+        *ngIf="
+          form.controls.firstName.errors?.required &&
+          form.controls.firstName.touched
+        "
+        class="error"
+      >
+        *Required
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input
+        class="form-control"
+        id="lastname"
+        formControlName="lastName"
+        [value]=""
+      />
+      <!-- <div
+        *ngIf="
+          form.controls.lastName.errors?.required &&
+          form.controls.lastName.touched
+        "
+        class="error"
+      >
+        *Required
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        class="form-control"
+        formControlName="email"
+        [value]=""
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        class="form-control"
+        formControlName="password"
+        [value]=""
+        type="password"
+      />
+    </div>
+    <div class="form-group">
+      <label>Course</label>
+      <select
+        class="custom-select"
+        (change)="changeCourse($event)"
+        formControlName="courseName"
+      >
+        <option [disabled] value="">Angular</option>
+        <option *ngFor="let course of courses" [ngValue]="course">{{
+          course
+        }}</option>
+      </select>
+
+      <!-- error block -->
+      <div
+        class="invalid-feedback"
+        *ngIf="isSubmitted && cityName.errors?.required"
+      >
+        <sup>*</sup>Please enter your language
+      </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="onUpdate()">Save Profile</button>
+  </form>
+</div>
+<!-- <pr-profile-details></pr-profile-details> -->
