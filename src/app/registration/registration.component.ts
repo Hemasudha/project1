@@ -11,7 +11,7 @@ import { formArrayNameProvider } from "@angular/forms/src/directives/reactive_di
 export class RegistrationComponent implements OnInit {
   model: User = new User();
   @ViewChild("myForm") form: any;
-
+  public details = User;
   submitted = false;
   private Users = [];
 
@@ -22,17 +22,18 @@ export class RegistrationComponent implements OnInit {
     this.form.reset();
     this.submitted = false;
   }
-  onRegister() {
+  onRegister(User) {
     console.log("Form Submitted!");
     this.form.reset();
     this.submitted = !this.submitted;
-    this.Users.push(this.form.value);
-    console.log(this.Users.length);
-  }
-  setDetails() {
-    this.usersService
-      .setDetails()
-      .subscribe(User => (this.Users.push = this.form.value));
+    //this.Users.push(this.form.value);
+    this.Users = User;
+    console.log(User);
     console.log(this.Users);
+    console.log(this.details);
+  }
+  setDetails(details) {
+    this.usersService.setDetails().subscribe(details => (this.Users = details));
+    console.log(details);
   }
 }

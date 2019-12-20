@@ -19,11 +19,16 @@ export class ProfileComponent implements OnInit {
   subForm: FormGroup;
   submitted = false;
   courseName: any;
-
-  constructor(public fb: FormBuilder) {}
+  private details = this.usersService.setDetails();
+  public courses = [
+    { id: 1, name: "Ember" },
+    { id: 2, name: "React" },
+    { id: 3, name: "Vue" }
+  ];
+  constructor(public fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit() {
-    //this.getDetails();
+    this.usersService.setDetails();
     this.subForm = this.fb.group({
       firstName: new FormControl("", Validators.required),
       lastName: new FormControl("", Validators.required),

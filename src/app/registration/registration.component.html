@@ -20,7 +20,7 @@
           #firstName="ngModel"
         />
         <div
-          class="form-control-feedback"
+          class="alert alert-danger"
           *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
         >
           <p class="alert alert-danger" *ngIf="firstName.errors.required">
@@ -47,7 +47,7 @@
           #lastName="ngModel"
         />
         <div
-          class="form-control-feedback"
+          class="alert alert-danger"
           *ngIf="lastName.errors && (lastName.dirty || lastName.touched)"
         >
           <p *ngIf="lastName.errors.required">Last name is required</p>
@@ -73,10 +73,12 @@
         #email="ngModel"
       />
       <div
-        class="form-control-feedback"
+        class="alert alert-danger"
         *ngIf="email.errors && (email.dirty || email.touched)"
       >
-        <p *ngIf="email.errors.required">Email is required</p>
+        <p *ngIf="email.errors.required">
+          Email is required
+        </p>
         <p *ngIf="email.errors.pattern">
           Email must contain at least the @ character
         </p>

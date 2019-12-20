@@ -6,14 +6,12 @@ import { of, Observable } from "rxjs";
   providedIn: "root"
 })
 export class UsersService {
-  // private User = new User();
-
-  constructor() {}
   setDetails(): Observable<User[]> {
-    // TODO: send the message _after_ fetching the heroes
-    return of();
+    console.log(User);
+    return;
   }
   getDetails() {
-    throw new Error("Method not implemented.");
+    return this.setDetails();
   }
+  constructor() {}
 }
