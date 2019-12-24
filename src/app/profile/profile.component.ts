@@ -18,8 +18,9 @@ import { User } from "../users";
 export class ProfileComponent implements OnInit {
   subForm: FormGroup;
   submitted = false;
+  user: {};
   courseName: any;
-  private details = this.usersService.setDetails();
+  // public details = this.usersService.setDetails();
   public courses = [
     { id: 1, name: "Ember" },
     { id: 2, name: "React" },
@@ -28,7 +29,8 @@ export class ProfileComponent implements OnInit {
   constructor(public fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit() {
-    this.usersService.setDetails();
+    this.user = this.usersService.getDetails();
+    console.log(this.user);
     this.subForm = this.fb.group({
       firstName: new FormControl("", Validators.required),
       lastName: new FormControl("", Validators.required),
@@ -40,7 +42,10 @@ export class ProfileComponent implements OnInit {
 
   changeCourse(e) {
     console.log(e.value);
-    this.courseName.setValue(e.target.value);
+    // this.courseName.setValue(e.target.value, {
+    //   onlySelf: true
+    // });
+    this.submitted = true;
   }
   onUpdate() {
     alert("updated successfully");

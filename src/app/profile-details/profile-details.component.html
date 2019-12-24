@@ -1,28 +1,29 @@
-<!-- <div class="container">
+<div class="container" *ngIf="!isSubmitted">
   <form [formGroup]="childForm">
     <div class="form-group">
-      <label for="duration">Duration</label>
+      <label>Duration</label>
       <select
         class="custom-select"
         (change)="changeDuration($event)"
-        formControlName="duration"
+        formControlName="durationD"
       >
-        <option value="">Choose duartion</option>
-        <option *ngFor="let duration of durations" [ngValue]="duration">{{
-          duration
-        }}</option>
+        <option value="">Choose duration</option>
+        <option *ngFor="let d of durations" [ngValue]="d"> {{ d }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="cost">Cost</label>
+      <label>Cost</label>
       <select
         class="custom-select"
         (change)="changeCost($event)"
         formControlName="cost"
       >
-        <option value="">Choose cost</option>
-        <option *ngFor="let cost of costs" [ngValue]="cost">{{ cost }}</option>
+        <option value="">cost</option>
+        <option *ngFor="let c of costs" [ngValue]="c">{{ c }}</option>
       </select>
     </div>
+    <input type="checkbox" /><label>Live Session</label>
+    <input type="checkbox" /><label>Practice Session</label>
+    <button class="btn btn-success" (click)="add()">Add</button>
   </form>
-</div> -->
+</div>

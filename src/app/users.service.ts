@@ -6,12 +6,15 @@ import { of, Observable } from "rxjs";
   providedIn: "root"
 })
 export class UsersService {
-  setDetails(): Observable<User[]> {
-    console.log(User);
+  public users: {};
+
+  setDetails(users) {
+    this.users = users;
+    console.log(users);
     return;
   }
   getDetails() {
-    return this.setDetails();
+    return this.users;
   }
   constructor() {}
 }

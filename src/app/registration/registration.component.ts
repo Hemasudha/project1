@@ -1,3 +1,4 @@
+import { TestBed } from "@angular/core/testing";
 import { UsersService } from "./../users.service";
 import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { User } from "../users";
@@ -13,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   @ViewChild("myForm") form: any;
   public details = User;
   submitted = false;
-  private Users = [];
+  public users: {};
 
   constructor(private usersService: UsersService) {}
   ngOnInit() {}
@@ -26,14 +27,8 @@ export class RegistrationComponent implements OnInit {
     console.log("Form Submitted!");
     this.form.reset();
     this.submitted = !this.submitted;
-    //this.Users.push(this.form.value);
-    this.Users = User;
-    console.log(User);
-    console.log(this.Users);
-    console.log(this.details);
-  }
-  setDetails(details) {
-    this.usersService.setDetails().subscribe(details => (this.Users = details));
-    console.log(details);
+    this.users = User;
+    console.log(this.users);
+    this.usersService.setDetails(this.users);
   }
 }

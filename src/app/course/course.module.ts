@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { RegistrationComponent } from "../registration/registration.component";
 import { ProfileComponent } from "../profile/profile.component";
 import { ProfileDetailsComponent } from "../profile-details/profile-details.component";
+import { UsersService } from "../users.service";
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
@@ -13,6 +14,7 @@ import { ProfileDetailsComponent } from "../profile-details/profile-details.comp
     RegistrationComponent,
     ProfileComponent,
     ProfileDetailsComponent
-  ]
+  ],
+  providers: [UsersService]
 })
 export class CourseModule {}
