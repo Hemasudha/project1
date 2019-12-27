@@ -1,5 +1,5 @@
 import { User } from "./../users";
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -13,35 +13,48 @@ import {
   styleUrls: ["./profile-details.component.css"]
 })
 export class ProfileDetailsComponent implements OnInit {
-  duration: any;
   isUpdate: false;
   childForm: FormGroup;
   isSubmitted = false;
-
+  isChecked: boolean;
+  details: {};
+  @Input() duration: any;
+  @Input() cost: any;
   @Output() valueChange = new EventEmitter();
-  public durations = ["1month", "3months", "6months"];
-  public costs = ["free", "$10", "$25"];
-  cost: any;
+  public durations = ["1month", "2months", "3months"];
 
+  public costs = ["free", "$10", "$25"];
+  public sessions = ["Live", "Practice"];
   constructor(public fb: FormBuilder) {}
 
   ngOnInit() {
     this.childForm = this.fb.group({
-      durationD: new FormControl("", Validators.required),
-      cost: new FormControl("", Validators.required)
+      duration: new FormControl("", Validators.required),
+      cost: new FormControl("", Validators.required),
+
+      session: new FormControl("", Validators.required)
     });
   }
 
-  changeDuration(e) {
-    console.log(this.duration.setValue(e.target.value));
+  changeDuration(duration: any) {
+    console.log(duration);
   }
-  changeCost(e) {
-    this.cost.setValue(e.target.value);
+  changeCost(cost: any) {
+    console.log(cost);
   }
   valueChanged() {
-    this.valueChange.emit({});
-  }
-  add() {
+    this.details = this.childForm.value;
+
+    this.valueChange.emit(this.details);
     this.isSubmitted = true;
+    console.log(this.details);
   }
+  // getValue(){
+  //   if(this.isChecked == true){
+  //     return this.
+  //   }
+  // }
+  // add() {
+  //   this.isSubmitted = true;
+  // }
 }

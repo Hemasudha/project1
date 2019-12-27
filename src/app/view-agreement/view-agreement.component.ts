@@ -7,7 +7,6 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./view-agreement.component.css"]
 })
 export class ViewAgreementComponent implements OnInit {
-  name = "Hemasudha";
   showVar: boolean;
 
   constructor() {}

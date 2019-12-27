@@ -3,7 +3,9 @@ export class User {
   // public lastName: string = "",
   // public email: string = "",
   // public password: string = ""
-  // public durations: string[] = ["1month", "3months", "6months"],
+  // public durations: string[] = [{id:1,name:"1month"},
+  //{ id:2,name: "3months"}],
+
   // public costs: string[] = ["free", "$10", "$25"]
   {}
 

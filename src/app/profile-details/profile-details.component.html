@@ -4,10 +4,10 @@
       <label>Duration</label>
       <select
         class="custom-select"
-        (change)="changeDuration($event)"
-        formControlName="durationD"
+        (change)="changeDuration($event.target.value)"
+        formControlName="duration"
       >
-        <option value="">Choose duration</option>
+        <option [ngValue]="">Choose duration</option>
         <option *ngFor="let d of durations" [ngValue]="d"> {{ d }}</option>
       </select>
     </div>
@@ -15,15 +15,18 @@
       <label>Cost</label>
       <select
         class="custom-select"
-        (change)="changeCost($event)"
+        (change)="changeCost($event.target.value)"
         formControlName="cost"
       >
-        <option value="">cost</option>
+        <option [ngValue]="">cost</option>
         <option *ngFor="let c of costs" [ngValue]="c">{{ c }}</option>
       </select>
     </div>
-    <input type="checkbox" /><label>Live Session</label>
-    <input type="checkbox" /><label>Practice Session</label>
-    <button class="btn btn-success" (click)="add()">Add</button>
+    <div *ngFor="let s of sessions">
+      <input type="checkbox" formControlName="session" value="s" />
+      <span>{{ s }}</span>
+    </div>
+
+    <button class="btn btn-success" (click)="valueChanged()">Add</button>
   </form>
 </div>

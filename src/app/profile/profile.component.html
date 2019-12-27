@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="subForm">
+  <form [formGroup]="subForm" *ngIf="!update">
     <div class="form-group">
       <label for="firstname">First Name</label>
       <input
@@ -52,7 +52,7 @@
       <label>Course</label>
       <select
         class="custom-select"
-        (change)="changeCourse($event)"
+        (change)="changeCourse($event.target.value)"
         formControlName="courseName"
       >
         <option value="">Angular</option>
@@ -69,13 +69,21 @@
         <sup>*</sup>Please enter your language
       </div>
     </div>
-    <div class="form-group" *ngIf="!isSubmitted">
-      <p>Duration:</p>
-      <p>Cost:</p>
-      <p>live session</p>
-    </div>
 
+    <pr-profile-details
+      *ngIf="submitted"
+      (valueChange)="count($event)"
+    ></pr-profile-details>
+    <div class="form-group" *ngIf="sub">
+      <p>Duration: {{ details.duration }}</p>
+
+      <p>Cost: {{ details.cost }}</p>
+      <p>Session: {{ details.session }}</p>
+    </div>
     <button class="btn btn-primary" (click)="onUpdate()">Save Profile</button>
   </form>
+
+  <div *ngIf="update" style="text-align:center;">
+    <h3>Profile details updated successfully.</h3>
+  </div>
 </div>
-<pr-profile-details *ngIf="submitted"></pr-profile-details>

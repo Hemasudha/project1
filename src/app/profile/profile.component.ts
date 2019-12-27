@@ -1,3 +1,4 @@
+import { ProfileDetailsComponent } from "./../profile-details/profile-details.component";
 import { UsersService } from "./../users.service";
 import { RegistrationComponent } from "./../registration/registration.component";
 import { Component, OnInit, Input } from "@angular/core";
@@ -18,9 +19,10 @@ import { User } from "../users";
 export class ProfileComponent implements OnInit {
   subForm: FormGroup;
   submitted = false;
+  sub = false;
+  update: boolean;
   user: {};
   courseName: any;
-  // public details = this.usersService.setDetails();
   public courses = [
     { id: 1, name: "Ember" },
     { id: 2, name: "React" },
@@ -39,15 +41,20 @@ export class ProfileComponent implements OnInit {
       courseName: new FormControl("", Validators.required)
     });
   }
+  details;
 
-  changeCourse(e) {
-    console.log(e.value);
-    // this.courseName.setValue(e.target.value, {
-    //   onlySelf: true
-    // });
+  changeCourse(course) {
+    console.log(course);
     this.submitted = true;
+    this.sub = true;
+  }
+  count(details) {
+    this.details = details;
+    //alert(details);
   }
   onUpdate() {
+    this.update = !this.update;
+    this.submitted = true;
     alert("updated successfully");
   }
 }
