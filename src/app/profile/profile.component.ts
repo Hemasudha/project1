@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.usersService.getDetails();
-    console.log(this.user);
+    // console.log(this.user);
     this.subForm = this.fb.group({
       firstName: new FormControl("", Validators.required),
       lastName: new FormControl("", Validators.required),
@@ -55,6 +55,6 @@ export class ProfileComponent implements OnInit {
   onUpdate() {
     this.update = !this.update;
     this.submitted = true;
-    alert("updated successfully");
+    // alert("updated successfully");
   }
 }
