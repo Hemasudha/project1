@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!submitted">
+<!-- <div class="container" *ngIf="!submitted">
   <form novalidate (ngSubmit)="onRegister(myForm.value)" #myForm="ngForm">
     <div
       class="form-group"
@@ -109,14 +109,6 @@
       </div>
     </div>
 
-    <!-- <div class="form-group">
-      <label>Language</label>
-      <select class="form-control" name="language" [(ngModel)]="model.language">
-        <option value="">Please select a language</option>
-        <option *ngFor="let lang of langs" [value]="lang">{{ lang }} </option>
-      </select>
-    </div> -->
-
     <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">
       Register
     </button>
@@ -124,8 +116,6 @@
     <button type="submit" (click)="onCancel()" class="btn btn-danger">
       cancel
     </button>
-
-    <!-- <pre>{{ myForm.value | json }}</pre> -->
   </form>
 </div>
 <div class="container" *ngIf="submitted">
@@ -135,4 +125,5 @@
     >to edit details
   </p>
 </div>
-<!-- <pr-profile *ngIf="submitted"></pr-profile> -->
+<pr-profile *ngIf="submitted"></pr-profile> -->
+<pr-design></pr-design>
