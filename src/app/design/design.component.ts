@@ -24,7 +24,7 @@ export class DesignComponent implements OnInit {
   constructor(public fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit() {
-    this.name = "Angular";
+    //this.name = "Angular";
   }
 
   onKey(event: any) {
@@ -35,18 +35,26 @@ export class DesignComponent implements OnInit {
     this.$name.subscribe(value => {
       console.log(value);
     });
-    this.bsubject.subscribe(data => {
-      console.log("A:" + data);
-    });
-    this.bsubject.next(Math.round(2.22));
-    this.bsubject.next(Math.random());
-
-    console.log(this.bsubject.value);
-
-    //subject = new Subject<string>();
+  }
+  onSub(event) {
+    //let subject = new Subject<string>();
+    this.data = event.target.value;
     this.subject.subscribe(data => {
       console.log(data);
     });
+    this.subject.next(this.data);
     this.subject.next(this.arr);
+  }
+
+  onBsub(event) {
+    this.data = event.target.value;
+
+    this.bsubject.subscribe(data => {
+      console.log("A:" + data);
+    });
+    this.bsubject.next(Math.round(this.data));
+    this.bsubject.next(Math.random());
+
+    console.log(this.bsubject.value);
   }
 }

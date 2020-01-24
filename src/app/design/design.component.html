@@ -1,2 +1,26 @@
-<label>Enter your name:</label>
-<input (keyup)="onKey($event)" [(ngModel)]="name" />
+<div class="container " style="text-align: center">
+  <div>
+    <label>Observable:</label>
+    <input
+      class="form-control"
+      (keyup.enter)="onKey($event)"
+      [(ngModel)]="name"
+    />
+  </div>
+  <div>
+    <label>Subject:</label>
+    <input
+      class="form-control"
+      (keyup.enter)="onSub($event)"
+      [(ngModel)]="sname"
+    />
+  </div>
+  <div>
+    <label>Behaviour Subject:</label>
+    <input
+      class="form-control"
+      (keyup.enter)="onBsub($event)"
+      [(ngModel)]="bname"
+    />
+  </div>
+</div>
